@@ -196,7 +196,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_confirm"
+            android:id="@+id/btn_register_confirm"
             android:layout_marginTop="30dp"
             android:layout_gravity="center_horizontal"
             style="@style/MyButtonStyle"

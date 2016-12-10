@@ -32,6 +32,7 @@
         android:textSize="16dp" />
 
     <Button
+        android:visibility="invisible"
         style="@style/MyButtonStyle"
         android:id="@+id/btn_movelogin"
         android:layout_alignParentRight="true"

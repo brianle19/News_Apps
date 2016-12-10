@@ -292,6 +292,8 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
             btn_movelogin.setVisibility(View.INVISIBLE);
             txtv_hello_user.setVisibility(View.VISIBLE);
             txtv_hello_user.setText("Xin chào, \n" + userObj.getFullname());
+        }else {
+            btn_movelogin.setVisibility(View.VISIBLE);
         }
     }
 }

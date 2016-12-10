@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             txtv_hello_user.setVisibility(View.VISIBLE);
             txtv_hello_user.setText("Xin chào, \n" + userObj.getFullname());
             btn_movelogin.setVisibility(View.INVISIBLE);
+        } else {
+            btn_movelogin.setVisibility(View.VISIBLE);
         }
     }
 

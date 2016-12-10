@@ -3,41 +3,51 @@ package thaile.com.aiw_client_finalproject.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import thaile.com.aiw_client_finalproject.Fragment.FragmentLogin;
+import thaile.com.aiw_client_finalproject.Fragment.FragmentRegister;
 import thaile.com.aiw_client_finalproject.R;
-import thaile.com.aiw_client_finalproject.UserObj;
 
 /**
  * Created by Thai Le on 12/1/2016.
  */
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText edt_username;
-    private EditText edt_password;
-    private ProgressBar progressBar;
-    private UserObj userObj;
-    private Button btn_login, btn_movelogin;
-    private CheckBox checkBox;
+public class LoginActivity extends AppCompatActivity {
+    private FragmentLogin fragmentLogin;
+    private FragmentRegister fragmentRegister;
+    private TextView txtv_title;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         initView();
 
     }
 
     private void initView() {
+        txtv_title = (TextView) findViewById(R.id.txtv_type);
+        fragmentLogin = new FragmentLogin();
+        fragmentRegister = new FragmentRegister();
 
+        showLogin();
     }
 
-    @Override
-    public void onClick(View v) {
+    public void showLogin(){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_layout, fragmentLogin)
+                .addToBackStack("")
+                .commit();
+    }
 
+    public void showRegister(){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_layout, fragmentRegister)
+                .hide(fragmentLogin)
+                .addToBackStack("")
+                .commit();
     }
 }

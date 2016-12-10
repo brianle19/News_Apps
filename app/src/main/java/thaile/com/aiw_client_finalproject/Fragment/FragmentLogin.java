@@ -26,6 +26,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import thaile.com.aiw_client_finalproject.Activity.LoginActivity;
 import thaile.com.aiw_client_finalproject.AppHelper;
 import thaile.com.aiw_client_finalproject.R;
 import thaile.com.aiw_client_finalproject.UserObj;
@@ -43,8 +44,9 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     private EditText edt_password;
     private ProgressBar progressBar;
     private UserObj userObj;
-    private Button btn_login, btn_movelogin;
+    private Button btn_login;
     private CheckBox checkBox;
+    private Button btn_register;
 
     @Override
     public void onAttach(Activity activity) {
@@ -67,15 +69,13 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+        btn_register = (Button)mView.findViewById(R.id.btn_register);
         progressBar = (ProgressBar)mView.findViewById(R.id.progressBar);
         edt_username = (EditText)mView.findViewById(R.id.edt_username);
         edt_password = (EditText) mView.findViewById(R.id.edt_password);
         btn_login = (Button) mView.findViewById(R.id.btn_login);
-        btn_movelogin = (Button) mView.findViewById(R.id.btn_movelogin);
         btn_login.setOnClickListener(this);
-
-        btn_movelogin.setVisibility(View.INVISIBLE);
-
+        btn_register.setOnClickListener(this);
     }
 
     @Override
@@ -86,6 +86,9 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
                 String inputPass = edt_password.getText().toString();
                 sendData(inputName, inputPass);
                 break;
+
+            case R.id.btn_register:
+                ((LoginActivity) mContext).showRegister();
             default:
                 break;
         }
