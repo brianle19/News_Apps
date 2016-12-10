@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="4dp"
+    android:layout_height="55dp"
+    android:background="#3949AB"
+    android:orientation="horizontal">
+    <ImageView
+        android:src="@mipmap/ic_home"
+        android:layout_gravity="center"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/img_home"
+        android:layout_width="23dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:lines="1"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/img_home"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Tin tức Việt Nam và quốc tế nóng, nhanh, cập nhật 24h"
+        android:id="@+id/txtv_type"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
+
+    <Button
+        style="@style/MyButtonStyle"
+        android:id="@+id/btn_movelogin"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:text="Đăng nhập"
+        />
+
+    <TextView
+        android:textColor="@android:color/white"
+        android:visibility="invisible"
+        android:textAllCaps="false"
+        android:textSize="10dp"
+        android:id="@+id/txtv_hello_user"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:text="Xin chào, Lê Xuân Thái"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</RelativeLayout>

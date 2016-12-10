@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/activity_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include
+        android:id="@+id/layout_top"
+        layout="@layout/item_top" />
+
+<android.support.v4.widget.NestedScrollView
+    android:layout_below="@id/layout_top"
+    android:fastScrollEnabled="true"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:padding="5dp"
+        style="@style/TitleStyle"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtv_title"/>
+
+     <TextView
+         android:padding="5dp"
+         android:textSize="10dp"
+         style="@style/MyTextStyle"
+         android:id="@+id/txtv_datetime"
+         android:layout_marginTop="5dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:padding="5dp"
+            android:src="@mipmap/ic_logo"
+            android:id="@+id/img_logo"
+            android:layout_width="50dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:padding="5dp"
+            style="@style/MyTextStyle"
+            android:id="@+id/txtv_shortintro"
+            android:layout_marginTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/img_news" />
+
+     <TextView
+         android:padding="5dp"
+         style="@style/MyTextStyle"
+         android:id="@+id/txtv_maincontent"
+         android:layout_marginTop="10dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
+
+        <TextView
+            android:padding="5dp"
+            android:textStyle="bold|italic"
+            android:textColor="@android:color/black"
+            android:layout_gravity="right"
+            android:textSize="18dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtv_author"/>
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:textColor="@color/colorWhite"
+                android:background="#283593"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tags: "/>
+
+            <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <TextView
+            android:background="#E0E0E0"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txtv_cmt_title"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:text="Ý kiến bạn đọc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:background="#E0E0E0"
+            android:id="@+id/recyclerview_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:background="#E0E0E0"
+            android:layout_width="match_parent"
+            android:layout_height="280dp">
+            <EditText
+                style="@style/MyTextStyle"
+                android:layout_margin="10dp"
+                android:gravity="start"
+                android:background="@android:color/white"
+                android:id="@+id/edt_contentcmt"
+                android:hint="Nội dung bình luận"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <Button
+                android:layout_below="@id/edt_contentcmt"
+                android:text="Gửi bình luận"
+                style="@style/MyButtonStyle"
+                android:id="@+id/btn_sendcmt"
+                android:layout_margin="10dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
