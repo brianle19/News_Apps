@@ -88,7 +88,7 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.btn_register:
-                ((LoginActivity) mContext).showRegister();
+                ((LoginActivity) getActivity()).showRegister();
             default:
                 break;
         }
@@ -140,7 +140,7 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString(AppHelper.KEY_SHAREDPREFERENCES, strResult);
             editor.commit();
-            ((Activity)mContext).finish();
+            ((LoginActivity)getActivity()).finish();
         }
     }
 }

@@ -6,10 +6,11 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/top"
+        android:id="@+id/top_login"
         layout="@layout/item_top"/>
 
     <RelativeLayout
+        android:layout_below="@id/top_login"
         android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

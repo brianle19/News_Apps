@@ -3,6 +3,7 @@ package thaile.com.aiw_client_finalproject.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import thaile.com.aiw_client_finalproject.Fragment.FragmentLogin;
@@ -35,19 +36,26 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void showLogin(){
+        txtv_title.setText("Đăng nhập");
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_layout, fragmentLogin)
-                .addToBackStack("")
                 .commit();
     }
 
     public void showRegister(){
+        txtv_title.setText("Đăng kí");
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_layout, fragmentRegister)
                 .hide(fragmentLogin)
                 .addToBackStack("")
                 .commit();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("DES", "desLogin");
     }
 }
