@@ -40,6 +40,7 @@ public abstract class AppHelper {
     public static String CATEGORY_URL= "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/getnewsbycategory?category=";
     public static String COMMENT_URL= "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/getcomments?id=";
     public static String LOGIN_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/postdata/login";
+    public static String REGISTER_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/postdata/register";
     public static String ADD_COMMENT_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/postdata/comment";
 
     public static final String ACTION = "ACTION_RECEIVER_OBJECT";

@@ -1,11 +1,15 @@
 package thaile.com.aiw_client_finalproject.Fragment;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +51,42 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     private Button btn_login;
     private CheckBox checkBox;
     private Button btn_register;
+
+    BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            edt_username.setText(intent.getStringExtra("username"));
+            edt_password.setText(intent.getStringExtra("password"));
+            Log.e("MEOMOE", intent.getStringExtra("username")+"--"+intent.getStringExtra("password"));
+        }
+    };
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.e("Login", "Pause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.e("Login", "Stop");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Log.e("YYY", "Hiiii Resume");
+
+        initBroadcast();
+    }
+
+    private void initBroadcast() {
+        IntentFilter intentFilter = new IntentFilter(AppHelper.ACTION);
+        mContext.registerReceiver(receiver, intentFilter);
+
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -95,7 +135,6 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     }
     private void sendData(final String username, final String password) {
         progressBar.setVisibility(View.VISIBLE);
-        // btn_login.setEnabled(false);
         RequestQueue queue = Volley.newRequestQueue(mContext);
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -140,7 +179,7 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString(AppHelper.KEY_SHAREDPREFERENCES, strResult);
             editor.commit();
-            ((LoginActivity)getActivity()).finish();
+            getActivity().finish();
         }
     }
 }

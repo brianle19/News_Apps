@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_layout, fragmentLogin)
+                .addToBackStack("")
                 .commit();
     }
 
@@ -48,9 +49,17 @@ public class LoginActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_layout, fragmentRegister)
-                .hide(fragmentLogin)
                 .addToBackStack("")
                 .commit();
+    }
+
+    public void removeRegister(){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .remove(fragmentRegister)
+                .commit();
+
+        showLogin();
     }
 
     @Override
