@@ -74,6 +74,10 @@ public class DialogInfor extends Dialog implements View.OnClickListener {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.clear();
                 editor.commit();
+                AppHelper.showToast(mContext, "Đăng xuất thành công");
+                ((MainActivity)getOwnerActivity()).initUserData();
+                dismiss();
+
                 break;
             case R.id.btn_exit:
                 ((MainActivity)getOwnerActivity()).initUserData();

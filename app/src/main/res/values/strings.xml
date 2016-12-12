@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">AIW_Client_FinalProject</string>
     <string name="title_activity_content">ContentActivity</string>
+    <string name="fullname">Họ và tên:</string>
+    <string name="dob">Ngày sinh:</string>
+    <string name="email">Email:</string>
+    <string name="address">Địa chỉ:</string>
+    <string name="username">Tên tài khoản:</string>
+    <string name="password">Mật khẩu:</string>
+    <string name="checkpassword">Nhập lại mật khẩu:</string>
+    <string name="phone">Số điện thoại:</string>
+
 </resources>

@@ -21,7 +21,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Họ tên"/>
+                android:text="@string/fullname"/>
 
             <EditText
                 android:layout_marginLeft="20dp"
@@ -43,7 +43,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ngày sinh"/>
+                android:text="@string/dob"/>
 
             <EditText
                 android:hint="Nhập ngày sinh"
@@ -66,7 +66,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên đăng nhập"/>
+                android:text="@string/username"/>
 
             <EditText
                 android:hint="Tên đăng nhập"
@@ -89,7 +89,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mật khẩu"/>
+                android:text="@string/password"/>
 
             <EditText
                 android:layout_marginLeft="20dp"
@@ -111,7 +111,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xác nhận mật khẩu"/>
+                android:text="@string/checkpassword"/>
 
             <EditText
                 android:layout_marginLeft="20dp"
@@ -134,7 +134,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ"/>
+                android:text="@string/address"/>
 
             <EditText
                 android:layout_marginLeft="20dp"
@@ -156,7 +156,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Số điện thoại"/>
+                android:text="@string/phone"/>
 
             <EditText
                 android:layout_marginLeft="20dp"
@@ -178,7 +178,7 @@
                 style="@style/MyFirstStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email"/>
+                android:text="@string/email"/>
 
             <EditText
                 android:layout_marginLeft="20dp"

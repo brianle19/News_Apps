@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_layout, fragmentLogin)
-                .addToBackStack("")
                 .commit();
     }
 
