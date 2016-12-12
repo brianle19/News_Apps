@@ -124,7 +124,7 @@ public class FragmentHome extends Fragment implements AdapterView.OnItemClickLis
             txtv_title.setText(firstObj.getTitleNews());
             txtv_shortintro.setText(firstObj.getShortIntro());
             txtv_date.setText(firstObj.getDateNews());
-            txtv_updated.setText("Tin mới cập nhập");
+            txtv_updated.setText("Tin mới cập nhật");
             Picasso.with(context).load(firstObj.getImgNews()).into(img);
 
             listNews.remove(0);

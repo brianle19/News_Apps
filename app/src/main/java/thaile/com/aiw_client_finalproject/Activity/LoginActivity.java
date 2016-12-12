@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         txtv_title.setText("Đăng nhập");
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content_layout, fragmentLogin)
+                .replace(R.id.content_layout, fragmentLogin)
                 .addToBackStack("")
                 .commit();
     }
@@ -48,23 +48,16 @@ public class LoginActivity extends AppCompatActivity {
         txtv_title.setText("Đăng kí");
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_layout, fragmentRegister)
+                .add(R.id.content_layout, fragmentRegister)
                 .addToBackStack("")
                 .commit();
     }
 
-    public void removeRegister(){
-        getSupportFragmentManager()
-                .beginTransaction()
-                .remove(fragmentRegister)
-                .commit();
-
-        showLogin();
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.e("DES", "desLogin");
     }
+
 }

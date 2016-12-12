@@ -55,32 +55,26 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.e("GET BROADCAST", intent.getStringExtra("username")+"--"+intent.getStringExtra("password"));
             edt_username.setText(intent.getStringExtra("username"));
             edt_password.setText(intent.getStringExtra("password"));
-            Log.e("MEOMOE", intent.getStringExtra("username")+"--"+intent.getStringExtra("password"));
         }
     };
 
     @Override
     public void onPause() {
         super.onPause();
+        mContext.unregisterReceiver(receiver);
         Log.e("Login", "Pause");
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.e("Login", "Stop");
-    }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        Log.e("YYY", "Hiiii Resume");
-
         initBroadcast();
     }
+
 
     private void initBroadcast() {
         IntentFilter intentFilter = new IntentFilter(AppHelper.ACTION);

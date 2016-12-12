@@ -83,16 +83,23 @@ public class FragmentRegister extends Fragment implements View.OnClickListener {
         checkpassword = edt_checkpass.getText().toString();
         email = edt_email.getText().toString();
 
-        checkExistData(username, password);
+        if (fullname.isEmpty() || dob.isEmpty() || address.isEmpty() || phone.isEmpty() ||username.isEmpty() || password.isEmpty()
+                || checkpassword.isEmpty() || email.isEmpty()){
+            AppHelper.showToast(mContext, "Vui lòng điền đầy thông tin!");
+        } else {
+            if (!password.equals(checkpassword)){
+                AppHelper.showToast(mContext, "Mật khẩu chưa khớp, vui lòng thử lại!");
+            } else {
+                checkExistData(username, password);
+            }
+        }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_register_confirm:
-
                 initData();
-
                 break;
 
             default:
@@ -151,7 +158,7 @@ public class FragmentRegister extends Fragment implements View.OnClickListener {
         intent.putExtra("username", username);
         intent.putExtra("password", password);
         mContext.sendBroadcast(intent);
-        ((LoginActivity)getActivity()).removeRegister();
+        ((LoginActivity)getActivity()).showLogin();
     }
 
     private void updateDisplayFail(){
@@ -175,7 +182,6 @@ public class FragmentRegister extends Fragment implements View.OnClickListener {
                     public void onResponse(String response) {
                         try {
                             String strResult = new String(response.getBytes("ISO-8859-1"), "UTF-8");
-                            Log.e("MEOO", strResult+"---");
                             if (strResult.equals("Fail")){
                                 Log.e("REGISS", "ok đấy");
                                 btn_register_confirm.setEnabled(false);

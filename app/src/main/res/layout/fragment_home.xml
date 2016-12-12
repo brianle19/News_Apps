@@ -33,6 +33,7 @@
             android:layout_height="180dp"
             android:id="@+id/imageView" />
         <TextView
+            android:textColor="@android:color/black"
             android:id="@+id/txtv_lastest_title"
             android:textSize="25dp"
             android:textStyle="bold"
@@ -60,11 +61,13 @@
 
 
     <TextView
+        android:background="#E0E0E0"
+        android:textColor="@color/colorBlack"
         android:id="@+id/txtv_updated"
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <ListView

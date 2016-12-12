@@ -227,7 +227,7 @@ public class FragmentBase extends Fragment implements AdapterView.OnItemClickLis
             txtv_title.setText(topObj.getTitleNews());
             txtv_shortintro.setText(topObj.getShortIntro());
             txtv_date.setText(topObj.getDateNews());
-            txtv_updated.setText("Tin mới cập nhập");
+            txtv_updated.setText("Tin mới cập nhật");
             Picasso.with(context).load(topObj.getImgNews()).into(img);
 
             listNews.remove(0);

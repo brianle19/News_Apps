@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:background="#E0E0E0"
         android:id="@+id/title"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:text="Tin tức về chủ để..."
-        android:textSize="20dp"
+        android:textSize="22dp"
         android:maxLines="2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ListView
         android:layout_below="@id/title"
