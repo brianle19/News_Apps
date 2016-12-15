@@ -147,6 +147,29 @@
                 android:layout_margin="10dp"
                 />
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:background="#E0E0E0"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtv_relatednews_title"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:text="Tin tức liên quan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ListView
+                android:id="@+id/listview_relatednews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ListView>
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
