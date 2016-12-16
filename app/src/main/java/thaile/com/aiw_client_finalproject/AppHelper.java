@@ -34,14 +34,13 @@ public abstract class AppHelper {
     public static final String KEY_OBJECT = "KEY_OBJECT";
     public static String KEY_TAG_NAME = "KEY_TAG_NAME";
     public static String BASE_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/get8lastestnews?num=";
-
-    public static String GET8NEWS_URL= "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/get8lastestnews?num=";
     public static String TAG_URL= "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/getnewsbytag?tag=";
     public static String CATEGORY_URL= "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/getnewsbycategory?category=";
     public static String COMMENT_URL= "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/getcomments?id=";
     public static String LOGIN_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/postdata/login";
     public static String REGISTER_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/postdata/register";
     public static String ADD_COMMENT_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/postdata/comment";
+    public static String RELATED_ARTICLES_URL = "http://192.168.100.18:8080/AIW_FinalProject_Server/getdata/getrelatedarticles?idArticle=";
 
     public static final String ACTION = "ACTION_RECEIVER_OBJECT";
     public static final String NAME_SHAREDPREFERENCES = "NAME_SHAREDPREFERENCES";

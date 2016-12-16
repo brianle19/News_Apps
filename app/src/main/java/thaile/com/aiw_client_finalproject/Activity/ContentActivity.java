@@ -10,9 +10,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -31,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 import thaile.com.aiw_client_finalproject.Adapter.AdapterComment;
+import thaile.com.aiw_client_finalproject.Adapter.AdapterRelatedArticles;
 import thaile.com.aiw_client_finalproject.Adapter.AdapterTags;
 import thaile.com.aiw_client_finalproject.AppHelper;
 import thaile.com.aiw_client_finalproject.CommentObj;
@@ -39,7 +42,7 @@ import thaile.com.aiw_client_finalproject.NewsObj;
 import thaile.com.aiw_client_finalproject.R;
 import thaile.com.aiw_client_finalproject.UserObj;
 
-public class ContentActivity extends AppCompatActivity implements AdapterTags.CallFragmentNewsTag, View.OnClickListener {
+public class ContentActivity extends AppCompatActivity implements AdapterTags.CallFragmentNewsTag, View.OnClickListener, AdapterView.OnItemClickListener {
     private TextView txtv_title, txtv_datetime, txtv_shortintro, txtv_maincontent, txtv_author;
     private ImageView img_news;
     private NewsObj newsObj;
@@ -58,6 +61,9 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
     private Button btn_sendcmt;
     private EditText edt_contentcmt;
     private String strCmt;
+    private ListView listView;
+    private AdapterRelatedArticles adapterRelatedArticles;
+    private List<NewsObj> listRelatedArticles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +77,9 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
 
     private void assignData() {
         listTag = Arrays.asList(newsObj.getTagNews());
+        if (listTag == null){
+            return;
+        }
         txtv_title.setText(newsObj.getTitleNews());
         txtv_shortintro.setText(newsObj.getShortIntro());
         txtv_author.setText(newsObj.getAuthorNews());
@@ -88,15 +97,9 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
 
         recyclerViewComment.setNestedScrollingEnabled(true);
 
-        recyclerViewComment.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
-
         adapterTags.setShowFragmentNewsTag(this);
 
+        loadRelatedArticles(newsObj.getIdNews(), newsObj.getCategory());
 
     }
 
@@ -106,6 +109,7 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
     }
 
     private void initView() {
+        listView = (ListView) findViewById(R.id.listview_relatednews);
         edt_contentcmt = (EditText) findViewById(R.id.edt_contentcmt);
         btn_sendcmt = (Button) findViewById(R.id.btn_sendcmt);
         txtv_hello_user = (TextView) findViewById(R.id.txtv_hello_user);
@@ -148,6 +152,8 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
             }
         });
 
+        listView.setNestedScrollingEnabled(true);
+        listView.setOnItemClickListener(this);
     }
 
     @Override
@@ -295,5 +301,44 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
         }else {
             btn_movelogin.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void loadRelatedArticles(int id, String category){
+        Log.e("JI", AppHelper.RELATED_ARTICLES_URL+id+"&categoryArticle="+AppHelper.encodeInput(category));
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.GET,
+                AppHelper.RELATED_ARTICLES_URL+id+"&categoryArticle="+AppHelper.encodeInput(category),
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            String strResult = new String(response.getBytes("ISO-8859-1"), "UTF-8");
+                            addRelatedArticles(strResult);
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                AppHelper.showToast(ContentActivity.this, "Lỗi");
+            }
+        });
+
+        queue.add(stringRequest);
+    }
+
+    public void addRelatedArticles(String str){
+        listRelatedArticles = AppHelper.parseToList(str);
+        adapterRelatedArticles = new AdapterRelatedArticles(this, listRelatedArticles);
+        listView.setAdapter(adapterRelatedArticles);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        NewsObj obj = listRelatedArticles.get(position);
+        AppHelper.sendData(ContentActivity.this, obj);
     }
 }

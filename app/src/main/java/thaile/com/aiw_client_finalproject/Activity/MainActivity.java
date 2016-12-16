@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.txtv_hello_user:
-                //TO DO SOMETHING
                 (new DialogInfor(this, userObj)).show();
             default:
                 break;

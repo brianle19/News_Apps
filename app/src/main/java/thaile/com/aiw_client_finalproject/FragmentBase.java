@@ -2,6 +2,7 @@ package thaile.com.aiw_client_finalproject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -228,6 +229,7 @@ public class FragmentBase extends Fragment implements AdapterView.OnItemClickLis
             txtv_shortintro.setText(topObj.getShortIntro());
             txtv_date.setText(topObj.getDateNews());
             txtv_updated.setText("Tin mới cập nhật");
+            txtv_updated.setBackgroundColor(Color.parseColor("#E0E0E0"));
             Picasso.with(context).load(topObj.getImgNews()).into(img);
 
             listNews.remove(0);

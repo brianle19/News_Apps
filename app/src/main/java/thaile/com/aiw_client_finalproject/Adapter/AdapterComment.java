@@ -19,12 +19,10 @@ import thaile.com.aiw_client_finalproject.R;
 
 public class AdapterComment extends RecyclerView.Adapter<AdapterComment.ViewHolder>{
     private LayoutInflater inflater;
-    private Context mContext;
     private List<CommentObj> arrList = new ArrayList<>();
 
 
     public AdapterComment(Context mContext, List<CommentObj> arrList){
-        this.mContext = mContext;
         this.arrList = arrList;
         inflater = LayoutInflater.from(mContext);
     }

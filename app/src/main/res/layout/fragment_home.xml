@@ -61,7 +61,6 @@
 
 
     <TextView
-        android:background="#E0E0E0"
         android:textColor="@color/colorBlack"
         android:id="@+id/txtv_updated"
         android:textSize="20dp"
