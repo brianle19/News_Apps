@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5dp"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/img_dot"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:src="@mipmap/ic_dot"/>
+    <TextView
+        android:layout_marginRight="8dp"
+        android:textSize="14dp"
+        android:layout_alignBaseline="@id/img_dot"
+        android:id="@+id/txtv_title"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/img_dot"
+        android:textStyle="normal"
+        android:lines="2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Công bố thông tin chính thức về Chuyên án bắt đối tượng bắn công an trọng thương"
+        style="@style/TitleStyle"/>
+
+    <ImageView
+
+        android:id="@+id/img_lastest_icon"
+        android:layout_alignParentRight="true"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:src="@mipmap/ic_lastest"/>
+
+
+</RelativeLayout>

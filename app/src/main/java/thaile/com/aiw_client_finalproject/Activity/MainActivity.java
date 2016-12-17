@@ -1,9 +1,13 @@
 package thaile.com.aiw_client_finalproject.Activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +23,7 @@ import thaile.com.aiw_client_finalproject.R;
 import thaile.com.aiw_client_finalproject.UserObj;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final int REQUEST_PERMISSION = 101;
     private ViewPager pager;
     private TabLayout tab;
     private MyPagerAdapter myPagerAdapter;
@@ -31,7 +36,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        requestAppPermissions(new String[]{
+                Manifest.permission.INTERNET},REQUEST_PERMISSION);
         initView();
+    }
+
+    public void requestAppPermissions(final String[]requestedPermissions, final int requestCode) {
+
+        int permissionCheck = PackageManager.PERMISSION_GRANTED;
+        boolean showRequestPermissions = false;
+        for(String permission: requestedPermissions) {
+            permissionCheck = permissionCheck + ContextCompat.checkSelfPermission(this, permission);
+            showRequestPermissions = showRequestPermissions || ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
+        }
+
+        if (permissionCheck!=PackageManager.PERMISSION_GRANTED) {
+            if(showRequestPermissions) {
+            } else {
+                ActivityCompat.requestPermissions(this, requestedPermissions, requestCode);
+            }
+        } else {}
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        int permissionCheck = PackageManager.PERMISSION_GRANTED;
+        for (int permisson : grantResults) {
+            permissionCheck = permissionCheck + permisson;
+        }
+
+        if ((grantResults.length > 0) && PackageManager.PERMISSION_GRANTED == permissionCheck) {}
+        else {}
     }
 
     private void initView() {

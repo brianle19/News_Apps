@@ -16,7 +16,7 @@ import thaile.com.aiw_client_finalproject.Activity.MainActivity;
  */
 
 public class DialogInfor extends Dialog implements View.OnClickListener {
-    private Button btn_editinfor, btn_changepass, btn_exit, btn_logout;
+    private Button btn_exit, btn_logout;
     private Context mContext;
     private TextView txtv_fullname, txtv_dob, txtv_username, txtv_email, txtv_phone, txtv_address;
     private UserObj userObj;
@@ -33,8 +33,6 @@ public class DialogInfor extends Dialog implements View.OnClickListener {
     }
 
     private void initView() {
-        btn_changepass = (Button)findViewById(R.id.btn_changepass);
-        btn_editinfor = (Button)findViewById(R.id.btn_editinfor);
         btn_exit = (Button) findViewById(R.id.btn_exit);
         btn_logout = (Button) findViewById(R.id.btn_logout);
 
@@ -47,9 +45,7 @@ public class DialogInfor extends Dialog implements View.OnClickListener {
 
 
         btn_exit.setOnClickListener(this);
-        btn_editinfor.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
-        btn_changepass.setOnClickListener(this);
 
     }
 
@@ -65,10 +61,6 @@ public class DialogInfor extends Dialog implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_changepass:
-                break;
-            case R.id.btn_editinfor:
-                break;
             case R.id.btn_logout:
                 SharedPreferences preferences = mContext.getSharedPreferences(AppHelper.NAME_SHAREDPREFERENCES,Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
