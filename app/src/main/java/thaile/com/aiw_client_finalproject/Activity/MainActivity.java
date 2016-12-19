@@ -10,7 +10,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -117,24 +116,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             txtv_hello_user.setVisibility(View.INVISIBLE);
             btn_movelogin.setVisibility(View.VISIBLE);
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.e("MEORESSUME", "meso");
-        initUserData();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.e("MEOPAUSE,", "PAUSE");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.e("START,", "START");
     }
 }
