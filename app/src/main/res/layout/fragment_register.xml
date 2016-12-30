@@ -96,7 +96,7 @@
 
             <EditText
                 android:maxLines="1"
-                android:inputType="textVisiblePassword"
+                android:inputType="textPassword"
                 android:layout_marginLeft="20dp"
                 android:hint="Nhập mật khẩu"
                 style="@style/MyFirstStyle"
@@ -120,7 +120,7 @@
 
             <EditText
                 android:maxLines="1"
-                android:inputType="textVisiblePassword"
+                android:inputType="textPassword"
                 android:layout_marginLeft="20dp"
                 android:hint="Nhập mật khẩu"
                 style="@style/MyFirstStyle"

@@ -24,7 +24,7 @@
         android:layout_marginLeft="15dp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/img_home"
-        android:layout_width="220dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Tin tức Việt Nam và quốc tế nóng, nhanh, cập nhật 24h"
         android:id="@+id/txtv_type"

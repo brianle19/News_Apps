@@ -238,6 +238,7 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
                 intent.setClass(ContentActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
+
             default:
                 break;
         }
@@ -297,14 +298,13 @@ public class ContentActivity extends AppCompatActivity implements AdapterTags.Ca
         if (userObj != null) {
             btn_movelogin.setVisibility(View.INVISIBLE);
             txtv_hello_user.setVisibility(View.VISIBLE);
-            txtv_hello_user.setText("Xin chào, \n" + userObj.getFullname());
+            txtv_hello_user.setText("Xin chào, \n" + userObj.getFullName());
         }else {
             btn_movelogin.setVisibility(View.VISIBLE);
         }
     }
 
     public void loadRelatedArticles(int id, String category){
-        Log.e("JI", AppHelper.RELATED_ARTICLES_URL+id+"&categoryArticle="+AppHelper.encodeInput(category));
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(
                 Request.Method.GET,

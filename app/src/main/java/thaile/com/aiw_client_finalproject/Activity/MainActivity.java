@@ -104,16 +104,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        initUserData();
+    }
+
     public void initUserData() {
         SharedPreferences preferences = getSharedPreferences(AppHelper.NAME_SHAREDPREFERENCES, MODE_PRIVATE);
         String mJson = preferences.getString(AppHelper.KEY_SHAREDPREFERENCES, "");
         userObj = AppHelper.paraseUserInforToJson(mJson);
         if (userObj != null) {
-            txtv_hello_user.setVisibility(View.VISIBLE);
-            txtv_hello_user.setText("Xin chào, \n" + userObj.getFullname());
             btn_movelogin.setVisibility(View.INVISIBLE);
+            txtv_hello_user.setVisibility(View.VISIBLE);
+            txtv_hello_user.setText("Xin chào, \n" + userObj.getFullName());
         } else {
-            txtv_hello_user.setVisibility(View.INVISIBLE);
             btn_movelogin.setVisibility(View.VISIBLE);
         }
     }

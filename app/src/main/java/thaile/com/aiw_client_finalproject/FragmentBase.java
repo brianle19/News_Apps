@@ -125,8 +125,6 @@ public class FragmentBase extends Fragment implements AdapterView.OnItemClickLis
                     isLoading = true;
                     increaseData = increaseData + 8;
                     initData(AppHelper.CATEGORY_URL+AppHelper.encodeInput(linkName)+"&num="+increaseData);
-                    Log.e("HEP", AppHelper.CATEGORY_URL+AppHelper.encodeInput(linkName)+"&num="+increaseData);
-                    Log.e("HOME=====>", listNews.size()+"\n"+"--"+increaseData);
                 }
             }
         });
@@ -200,7 +198,6 @@ public class FragmentBase extends Fragment implements AdapterView.OnItemClickLis
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Log.e("MEO","add params");
                 Map<String, String> params  = new HashMap<>();
                 params.put("num", String.valueOf(increaseData));
                 return  params;

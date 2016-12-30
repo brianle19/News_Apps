@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
@@ -49,7 +48,6 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     private ProgressBar progressBar;
     private UserObj userObj;
     private Button btn_login;
-    private CheckBox checkBox;
     private Button btn_register;
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -65,7 +63,6 @@ public class FragmentLogin extends Fragment implements View.OnClickListener {
     public void onPause() {
         super.onPause();
         mContext.unregisterReceiver(receiver);
-        Log.e("Login", "Pause");
     }
 
 

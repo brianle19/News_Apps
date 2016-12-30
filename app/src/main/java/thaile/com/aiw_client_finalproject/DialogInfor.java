@@ -52,7 +52,7 @@ public class DialogInfor extends Dialog implements View.OnClickListener {
     private void initData(){
         txtv_address.setText(userObj.getUserAddress());
         txtv_dob.setText(userObj.getDob());
-        txtv_fullname.setText(userObj.getFullname());
+        txtv_fullname.setText(userObj.getFullName());
         txtv_phone.setText(userObj.getUserPhone());
         txtv_email.setText(userObj.getUserEmail());
         txtv_username.setText(userObj.getUserName());

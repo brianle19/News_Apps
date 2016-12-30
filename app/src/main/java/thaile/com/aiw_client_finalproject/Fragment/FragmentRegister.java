@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,7 +116,6 @@ public class FragmentRegister extends Fragment implements View.OnClickListener {
                     public void onResponse(String response) {
                         switch (response) {
                             case "Success":
-                                Log.e("REGISS", response);
                                 updateDisplaySuccess();
                                 break;
                             case "Fail":
@@ -183,7 +181,6 @@ public class FragmentRegister extends Fragment implements View.OnClickListener {
                         try {
                             String strResult = new String(response.getBytes("ISO-8859-1"), "UTF-8");
                             if (strResult.equals("Fail")){
-                                Log.e("REGISS", "ok đấy");
                                 btn_register_confirm.setEnabled(false);
                                 sendData();
                             } else {

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class UserObj implements Serializable {
     private int id;
-    private String fullname;
+    private String fullName;
     private String userName;
     private String passWord;
     private String dob;
@@ -16,9 +16,9 @@ public class UserObj implements Serializable {
     private String userEmail;
     private String userPhone;
 
-    public UserObj(int id, String fullname, String userName, String passWord, String dob, String userAddress, String userEmail,
+    public UserObj(int id, String fullName, String userName, String passWord, String dob, String userAddress, String userEmail,
                    String userPhone) {
-        this.fullname = fullname;
+        this.fullName = fullName;
         this.userName = userName;
         this.passWord = passWord;
         this.dob = dob;
@@ -39,8 +39,8 @@ public class UserObj implements Serializable {
     }
 
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
     public String getUserName() {

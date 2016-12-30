@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +63,6 @@ public class FragmentNewsTag extends Fragment implements AdapterView.OnItemClick
         txtvTitle.setText("Tin tức về chủ đề \""+tagName+"\"");
 
         new MyAsync().execute(AppHelper.TAG_URL + AppHelper.encodeInput(tagName));
-        Log.e("TAG---link", AppHelper.TAG_URL + AppHelper.encodeInput(tagName));
     }
 
     private void initView() {
@@ -97,7 +95,6 @@ public class FragmentNewsTag extends Fragment implements AdapterView.OnItemClick
         protected void onPostExecute(String strResult) {
             super.onPostExecute(strResult);
             listNews = AppHelper.parseToList(strResult);
-            Log.e("TAG---size", listNews.size()+"SIZETAG");
             if (listNews.size() == 0){
                 return;
             } else {
